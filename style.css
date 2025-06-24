@@ -43,13 +43,13 @@ body {
     animation: fadeIn ease 2s forwards;
 }
 .delay-0 { animation-delay: 0s; }
-.delay-1 { animation-delay: 2s; }
-.delay-2 { animation-delay: 4s; }
-.delay-3 { animation-delay: 6s; }
-.delay-4 { animation-delay: 8s; }
-.delay-5 { animation-delay: 10s; }
-.delay-6 { animation-delay: 12s; }
-.delay-7 { animation-delay: 14s; }
+.delay-1 { animation-delay: 4s; }
+.delay-2 { animation-delay: 8s; }
+.delay-3 { animation-delay: 12s; }
+.delay-4 { animation-delay: 16s; }
+.delay-5 { animation-delay: 20s; }
+.delay-6 { animation-delay: 24s; }
+.delay-7 { animation-delay: 28s; }
   
 @keyframes fadeIn {
     to {
