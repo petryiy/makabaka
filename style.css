@@ -9,19 +9,19 @@ body {
     align-items: center;
     height: 100vh;
     overflow: hidden;
-  }
-  
-  .centered {
+}
+
+.centered {
     text-align: center;
     padding: 20px;
-  }
+}
   
-  .big-text {
+.big-text {
     font-size: 2.5rem;
     margin-bottom: 1rem;
-  }
+}
   
-  .button {
+.button {
     padding: 0.8em 1.5em;
     font-size: 1rem;
     background: #ffd6d6;
@@ -31,28 +31,65 @@ body {
     text-decoration: none;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     transition: all 0.3s ease;
-  }
+}
   
-  .button:hover {
+.button:hover {
     background: #ffbbbb;
-  }
+}
   
   /* 淡入动画 */
-  .fade-in {
+.fade-in {
     opacity: 0;
     animation: fadeIn ease 2s forwards;
-  }
-  .delay-0 { animation-delay: 0s; }
-  .delay-1 { animation-delay: 1s; }
-  .delay-2 { animation-delay: 2.2s; }
-  .delay-3 { animation-delay: 3.4s; }
-  .delay-4 { animation-delay: 4.6s; }
-  .delay-5 { animation-delay: 5.8s; }
-  .delay-6 { animation-delay: 7s; }
-  .delay-7 { animation-delay: 8.2s; }
+}
+.delay-0 { animation-delay: 0s; }
+.delay-1 { animation-delay: 1s; }
+.delay-2 { animation-delay: 2.2s; }
+.delay-3 { animation-delay: 3.4s; }
+.delay-4 { animation-delay: 4.6s; }
+.delay-5 { animation-delay: 5.8s; }
+.delay-6 { animation-delay: 7s; }
+.delay-7 { animation-delay: 8.2s; }
   
-  @keyframes fadeIn {
+@keyframes fadeIn {
     to {
       opacity: 1;
     }
-  }
+}
+
+  /* Heart animation */
+.heart-container {
+    position: relative;
+    text-align: center;
+}
+.heart {
+    width: 100px;
+    height: 90px;
+    background: red;
+    position: relative;
+    margin: 0 auto;
+    transform: scale(1);
+    animation: beat 1s infinite;
+}
+.heart:before,
+.heart:after {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 90px;
+    background: red;
+    border-radius: 50%;
+}
+.heart:before {
+    top: -50px;
+    left: 0;
+}
+.heart:after {
+    left: 50px;
+    top: 0;
+}
+  
+@keyframes beat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
