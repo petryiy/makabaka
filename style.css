@@ -13,14 +13,14 @@ body.homepage {
 
 .centered {
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
 }
   
 .big-text {
-    font-size: 3em;
+    font-size: 90em;
     margin-bottom: 20px;
     color: #fef6f3;
 }
@@ -41,7 +41,6 @@ body.homepage {
     background-color: rgba(255, 255, 255, 0.9);
 }
   
-  /* 淡入动画 */
 .fade-in {
     opacity: 0;
     animation: fadeIn 2s ease forwards;
