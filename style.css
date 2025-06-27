@@ -17,10 +17,11 @@ body.homepage {
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
+    font-size: larger;
 }
   
 .big-text {
-    font-size: 6em;
+    font-size: 5em;
     margin-bottom: 80px;
     color: #fef6f3;
 }
