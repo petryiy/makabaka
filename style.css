@@ -46,7 +46,7 @@ body.homepage {
     opacity: 0;
     animation: fadeIn 2s ease forwards;
 }
-.delay-0 { animation-delay: 0s; }
+.delay-0 { animation-delay: 0.5s; }
 .delay-1 { animation-delay: 2.5s; }
 .delay-2 { animation-delay: 5s; }
 .delay-3 { animation-delay: 7.5s; }
