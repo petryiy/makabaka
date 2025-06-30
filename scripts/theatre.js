@@ -63,11 +63,11 @@ document.addEventListener("DOMContentLoaded", () => {
         `;
   
         cardIndex++;
-        setTimeout(showCard, 6000); 
+        setTimeout(showCard, 7000); 
       }
   
       showCard();
-    }, 10000);
+    }, 15000);
   
     function populateAllCards() {
       allCardsGrid.innerHTML = "";
