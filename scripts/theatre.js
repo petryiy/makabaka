@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
           memoryCardContainer.style.display = "none";
           populateAllCards();
           allCardsGrid.classList.remove("hidden");
-          nextButton.classList.remove("hidden");
+          nextButton.classList.add("show");
           return;
         }
   
@@ -63,11 +63,11 @@ document.addEventListener("DOMContentLoaded", () => {
         `;
   
         cardIndex++;
-        setTimeout(showCard, 7000); 
+        setTimeout(showCard, 9000); 
       }
   
       showCard();
-    }, 15000);
+    }, 20000);
   
     function populateAllCards() {
       allCardsGrid.innerHTML = "";
@@ -84,5 +84,4 @@ document.addEventListener("DOMContentLoaded", () => {
         allCardsGrid.appendChild(card);
       }
     }
-  });
-  
+});
