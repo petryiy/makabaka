@@ -54,8 +54,9 @@ document.addEventListener("DOMContentLoaded", () => {
   
         const data = cardData[cardIndex];
         memoryCardContainer.innerHTML = `
-          <div class="memory-card">
-            <img src="${data.img}" alt="${data.title}" />
+          <div class="memory-card" style="opacity:0">
+            <img src="${data.img}" alt="${data.title}"
+                onload="this.closest('.memory-card').style.opacity=1">
             <h2>${data.title}</h2>
             <p>${data.text}</p>
             <p class="date">${data.date}</p>
@@ -66,7 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
   
         cardIndex++;
-        setTimeout(showCard, 9000); 
+        setTimeout(showCard, 10000); 
       }
   
       showCard();

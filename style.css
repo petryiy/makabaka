@@ -135,6 +135,17 @@ body.theatre {
     margin-top: 2em;
     display: none;
   }
+  @keyframes cardAppear {
+    0% {
+        opacity: 0;
+        transform: scale(0.7) translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+  }
+
   .memory-card {
     background: #fff;
     border: 2px dashed #a4d3a2;
@@ -145,11 +156,8 @@ body.theatre {
     max-width: 600px;
     box-shadow: 0 8px 16px rgba(0,0,0,0.1);
     opacity: 0;
-    transform: scale(0.98);
-    transition: 
-        opacity 0.8s ease-out,
-        transform 0.8s cubic-bezier(0.18, 0.89, 0.32, 1.28);;
-    /* animation: fadeIn 1.5s ease; */
+    animation: cardAppear 3s cubic-bezier(0.2, 0.8, 0.3, 1) forwards;
+    transform-origin: center bottom;
   }
   .memory-card.show {
     opacity: 1;
