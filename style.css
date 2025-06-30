@@ -194,7 +194,7 @@ body.theatre {
   }
   
 
-  .button {
+  .next-button {
     margin-top: 3em;
     padding: 0.8em 2em;
     background-color: #a5d6a7;
@@ -208,7 +208,7 @@ body.theatre {
     transition: background-color 0.3s ease;
   }
   
-  .button:hover {
+  .next-button:hover {
     background-color: #81c784;
   }
   
