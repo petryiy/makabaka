@@ -61,6 +61,9 @@ document.addEventListener("DOMContentLoaded", () => {
             <p class="date">${data.date}</p>
           </div>
         `;
+        requestAnimationFrame(() => {
+            memoryCardContainer.querySelector('.memory-card').classList.add('show');
+        });
   
         cardIndex++;
         setTimeout(showCard, 9000); 
