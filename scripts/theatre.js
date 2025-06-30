@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
   
       showCard();
-    }, 9000);
+    }, 10000);
   
     function populateAllCards() {
       allCardsGrid.innerHTML = "";
