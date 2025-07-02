@@ -6,9 +6,10 @@ document.addEventListener("DOMContentLoaded", () => {
   
     const cardData = [
       {
-        title: "初识",
-        text: "今天我们相遇了，当时的我们还不知道未来会发生什么……",
-        date: "2022-12-21",
+        title: "故事开始的地方",
+        text: "“你好，加个微信吗？”",
+        text: "“好(///▽///)”",
+        date: "Sep 2023",
         img: "images/memory1.jpg"
       },
       {
