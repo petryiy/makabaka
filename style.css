@@ -187,6 +187,12 @@ body.theatre {
     color: #888;
   }
   
+  .dialogue {
+    font-size: 20px;
+    line-height: 1.6;
+    margin: 1em 0;
+    text-align: center;
+  }
 
   .all-cards-grid {
     display: grid;

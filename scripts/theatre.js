@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <img src="${data.img}" alt="${data.title}"
                 onload="this.closest('.memory-card').style.opacity=1">
             <h2>${data.title}</h2>
-            <p>${data.text}</p>
+            <div class="dialogue">${data.text}</div>
             <p class="date">${data.date}</p>
           </div>
         `;
@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
         card.innerHTML = `
           <img src="${data.img}" alt="${data.title}" />
           <h2>${data.title}</h2>
-          <p>${data.text}</p>
+          <div class="dialogue">${data.text}</div>
           <p class="date">${data.date}</p>
         `;
         allCardsGrid.appendChild(card);
