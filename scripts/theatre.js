@@ -7,8 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const cardData = [
       {
         title: "故事开始的地方",
-        text: "“你好，加个微信吗？”",
-        text: "“好(///▽///)”",
+        text: "「你好，加个微信吗？」<br> 「好(///▽///)」",
         date: "Sep 2023",
         img: "images/memory1.jpg"
       },
