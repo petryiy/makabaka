@@ -187,12 +187,41 @@ body.theatre {
     color: #888;
   }
   
-  .dialogue {
-    white-space: pre-line;
-    font-size: 20px;
+  .normal-text {
+    font-size: 17px;
+    color: #444;
+    margin: 10px 0;
     line-height: 1.8;
-    margin: 1em 0;
-    text-align: center;
+    text-align: justify;
+  }
+
+  .chat-box {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 10px 0;
+  }
+
+  .bubble {
+    max-width: 80%;
+    padding: 10px 14px;
+    border-radius: 16px;
+    font-size: 16px;
+    position: relative;
+  }
+  
+  .bubble.left {
+    align-self: flex-start;
+    background-color: #e1f5c4;
+    color: #333;
+    border-top-left-radius: 0;
+  }
+
+  .bubble.right {
+    align-self: flex-end;
+    background-color: #d1eaff;
+    color: #333;
+    border-top-right-radius: 0;
   }
 
   .all-cards-grid {
