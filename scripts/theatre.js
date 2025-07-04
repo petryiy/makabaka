@@ -89,6 +89,14 @@ document.addEventListener("DOMContentLoaded", () => {
       allCardsGrid.innerHTML = "";
       for (let i = 0; i < cardData.length; i++) {
         const data = cardData[i];
+        let textHtml = "";
+        if (typeof data.text === "string") {
+          textHtml = `<p class="normal-text">${data.text}</p>`;
+        } else if (Array.isArray(data.text)) {
+          textHtml = `<div class="chat-box">
+            ${data.text.map(t => `<p class="bubble ${t.side}">${t.msg}</p>`).join("")}
+          </div>`;
+        }
         const card = document.createElement("div");
         card.className = "memory-card";
         card.innerHTML = `
