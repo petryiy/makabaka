@@ -15,27 +15,27 @@ document.addEventListener("DOMContentLoaded", () => {
         img: "images/memory1.jpg"
       },
       {
-        title: "test",
-        text: "test",
-        date: "2023-01-04",
+        title: "小吉出生啦",
+        text: "第一次网购礼物，还差点被这边的物流骗钱！差点就毁了本天才的一世英名",
+        date: "15 Jul 2024",
         img: "images/memory2.jpg"
       },
       {
-        title: "test",
-        text: "test",
-        date: "2023-03-15",
+        title: "正式在一起",
+        text: "第一次手捧鲜花穿过整个城市前往机场，既紧张又激动。在你家楼下，昏黄的路灯下，试探着靠近又分开，直到Uber刺眼的车灯划破夜色，只留下未完成的吻和那句下次一定",
+        date: "21 Feb 2025",
         img: "images/memory3.jpg"
       },
       {
-        title: "test",
-        text: "test",
-        date: "2024-07-10",
+        title: "约定的完成",
+        text: "那天我们去了long reef，完成了两天前的约定。这里的风景果然如网上所说那般好看，但我想，我早已拥有了那道最美的风景",
+        date: "23 Feb 2025",
         img: "images/memory4.jpg"
       },
       {
-        title: "test",
-        text: "test",
-        date: "2025-06-25",
+        title: "Kiama之旅",
+        text: "第一次单独出门旅行，那一天，下着大雨，屋内的我们，昏暗的灯光下，既没睡好，却也好像睡得很好...",
+        date: "31 Mar 2025",
         img: "images/memory5.jpg"
       }
     ];
