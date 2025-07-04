@@ -65,13 +65,12 @@ document.addEventListener("DOMContentLoaded", () => {
             ${data.text.map(t => `<p class="bubble ${t.side}">${t.msg}</p>`).join("")}
           </div>`;
         }
-        
+
         memoryCardContainer.innerHTML = `
-          <div class="memory-card" style="opacity:0">
+          <div class="memory-card">
             <img src="${data.img}" alt="${data.title}"
-                onload="this.closest('.memory-card').style.opacity=1">
             <h2>${data.title}</h2>
-            <div class="dialogue">${data.text}</div>
+            ${textHtml}
             <p class="date">${data.date}</p>
           </div>
         `;
@@ -95,7 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
         card.innerHTML = `
           <img src="${data.img}" alt="${data.title}" />
           <h2>${data.title}</h2>
-          <div class="dialogue">${data.text}</div>
+          ${textHtml}
           <p class="date">${data.date}</p>
         `;
         allCardsGrid.appendChild(card);
