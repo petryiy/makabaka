@@ -37,6 +37,18 @@ document.addEventListener("DOMContentLoaded", () => {
         text: "第一次单独出门旅行，那一天，下着大雨，屋内的我们，昏暗的灯光下，既没睡好，却也好像睡得很好...",
         date: "31 Mar 2025",
         img: "images/memory5.jpg"
+      },
+      {
+        title: "墨尔本之旅",
+        text: "第一次在陌生的城市并肩而行，我们牵着手漫步在人群中，那一刻，时间仿佛为我们按下了暂停键，只剩下你和我",
+        date: "28 May 2025",
+        img: "images/memory6.jpg"
+      },
+      {
+        title: "To Be Continued",
+        text: "未来或许不确定，但确定的是，你曾紧握我的手，站在我的身边。时间太长，我们也太年轻，长长的路我们慢慢走，而剩下的答案，我们慢慢找",
+        date: "此刻即永恒",
+        img: "images/memory7.jpg"
       }
     ];
   
