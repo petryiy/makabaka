@@ -272,3 +272,40 @@ img {
 .next-button:hover {
   background-color: #81c784;
 }
+
+.paper-plane {
+  margin-left: 10px;
+  transition: transform 0.6s ease-in-out;
+}
+
+#wish-btn:hover .paper-plane {
+  animation: float 2s infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(-5deg); }
+  50% { transform: translateY(-10px) rotate(5deg); }
+}
+
+.page-folding .memory-stage {
+  animation: foldAndFly 1.2s ease-in-out forwards;
+}
+
+@keyframes foldAndFly {
+  0% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+  30% {
+    transform: scale(0.8) rotate(3deg);
+    opacity: 0.8;
+  }
+  60% {
+    transform: scale(0.6) rotate(-5deg) translateY(-20px);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(0.3) rotate(-30deg) translate(-300px, -200px);
+    opacity: 0;
+  }
+}
