@@ -56,27 +56,23 @@ canvas#stars-canvas {
 
 /* ===== 漂流瓶容器 ===== */
 #bottles-container {
-    position: absolute;
-    bottom: 10vh;
-    left: 50%;
-    transform: translateX(-50%);
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 40px;
-    max-width: 1000px;
-    padding: 0 10%;
+    height: 100%;
+    pointer-events: none; 
     z-index: 20;
 }
 
 /* ===== 单个漂流瓶 ===== */
 .bottle {
+    position: absolute;
     width: 80px;
     height: 120px;
-    transform: translateY(50px);
-    opacity: 0;
-    transition: all 0.8s ease-out;
+    cursor: pointer;
+    pointer-events: auto;
+    transition: all 1s ease;
 }
 
 .bottle.visible {
