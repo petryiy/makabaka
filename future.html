@@ -8,22 +8,31 @@
     </head>
     <body>
         <canvas id="stars-canvas"></canvas>
-
+        
+        <h1 class="page-title">愿景</h1>
         <div class="opening-text">
-            <p id="line1" class="typewritter-text"></p>
-            <p id="line2" class="typewritter-text"></p>
-            <p id="line3" class="typewritter-text"></p>
-            <p id="line4" class="typewritter-text"></p>
+            <p id="line1"></p>
+            <p id="line2"></p>
+            <p id="line3"></p>
+            <p id="line4"></p>
         </div>
 
         <div id="wish-box" class="wish-box hidden">
             <img id="wish-img" src="" alt="wish image" />
             <p id="wish-text"></p>
         </div>
+        
+        <div id="bottle-container"></div>
 
-        <img id="bottle" src="images/bottle.png" alt="bottle" class="bottle hidden"/>
+        <div id="modal" class="modal hidden">
+            <div class="modal-content">
+                <span id="close-modal">&times;</span>
+                <img id="modal-img" src="" alt="wish pic" />
+                <p id="modal-text"></p>
+            </div>
+        </div>
 
-        <button id="to-wish-btn" class="hidden">继续点我</button>
+        <button id="next-page-btn" class="hidden">继续点我</button>
         
         <script src="scripts/future.js"></script>
     </body>

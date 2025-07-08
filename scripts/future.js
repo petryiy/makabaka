@@ -86,15 +86,16 @@ const wishes = [
 ];
 
 let index = 0;
+const bottleContainer = document.getElementById("bottle-container");
 
 function showWish() {
     const box = document.getElementById("wish-box");
     const img = document.getElementById("wish-img");
     const text = document.getElementById("wish-text");
-    const bottle = document.getElementById("bottle");
+    // const bottle = document.getElementById("bottle");
 
     if (index >= wishes.length) {
-        document.getElementById("to-wish-btn").classList.remove("hidden");
+        document.getElementById("next-page-btn").classList.remove("hidden");
         return;
     }
 
@@ -102,29 +103,49 @@ function showWish() {
     img.src = wishImg;
     text.innerHTML = wishText;
     box.classList.remove("hidden");
+    
     setTimeout(() => {
         box.classList.add("visible");
-    }, 100);
-
-    setTimeout(() => {
-        box.classList.remove("visible");
         setTimeout(() => {
-            box.classList.add("hidden");
-            bottle.classList.remove("hidden");
-            bottle.classList.add("bottle");
+            box.classList.remove("visible");
             setTimeout(() => {
-                bottle.classList.add("hidden");
+                box.classList.add("hidden");
+                createBottle(index, wishImg, wishText);
                 index++;
                 showWish();
-            }, 1300);
-        }, 1000);
-    }, 5000);
+            }, 300);
+        }, 5000);
+    }, 100);
 }
+
+function createBottle(i, imgSrc, textContent) {
+    const bottle = document.createElement("img");
+    bottle.src = "images/bottle.png";
+    bottle.className = "bottle-img";
+    bottle.dataset.img = imgSrc;
+    bottle.dataset.text = textContent;
+    bottle.addEventListener("click", openModal);
+    bottleContainer.appendChild(bottle);
+}
+
+const modal = document.getElementById("modal");
+const modalImg = document.getElementById("modal-img");
+const modalText = document.getElementById("modal-text");
+
+function openModal(e) {
+    modalImg.src = e.target.dataset.img;
+    modalText.innerHTML = e.target.dataset.text;
+    modal.classList.remove("hidden");
+}
+
+document.getElementById("close-modal").addEventListener("click", () => {
+    modal.classList.add("hidden");
+});
 
 window.onload = function () {
     typeLine();
 };
 
-document.getElementById("to-wish-btn").addEventListener("click", () => {
-    window.location.href = "wish.html";
+document.getElementById("next-page-btn").addEventListener("click", () => {
+    window.location.href = "present.html";
 });
