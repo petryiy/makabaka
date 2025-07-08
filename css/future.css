@@ -9,6 +9,13 @@ body {
     min-height: 100vh;
 }
 
+.title {
+    font-size: 64px;
+    font-weight: bold;
+    color: #000000;
+    margin-bottom: 1em;
+}
+
 /* ===== 星空画布 ===== */
 canvas#stars-canvas {
     position: fixed;
