@@ -92,6 +92,9 @@ const wishes = [
 function createBottles() {
     const container = document.getElementById("bottles-container");
 
+    const bottleCount = wishes.length;
+    const spacing = 100 / (bottleCount + 1);
+
     wishes.forEach((wish, index) => {
         setTimeout(() => {
             const bottle = document.createElement("div");
@@ -101,18 +104,13 @@ function createBottles() {
                 <img src="images/bottle.png" alt="漂流瓶">
                 <div class="bottle-glow"></div>
             `;
-            let left, bottom;
-            do {
-                left = 10 + Math.random() * 80;
-                bottom = 20 + Math.random() * 60;
-            } while (left > 40 && left < 60 && bottom < 35);
-            
+            const leftPercent = spacing * (index + 1);
+
             let rotate = -15 + Math.random() * 30;
 
-            bottle.style.left = `${left}%`;
-            bottle.style.bottom = `${bottom}%`;
-            bottle.style.transform = `rotate(${rotate}deg)`;
-            bottle.style.opacity = "0";
+            bottle.style.left = `${leftPercent}%`;
+            bottle.style.top = `65%`;
+            bottle.style.transform = `translate(-50%, -50%) rotate(${rotate}deg)`;
 
             bottle.addEventListener("click", () => showWish(index));
 
