@@ -1,0 +1,96 @@
+body {
+    margin: 0;
+    font-family: 'ZCOOL QingKe HuangYou', cursive, sans-serif;
+    background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+    color: #fff;
+    overflow-x: hidden;
+    position: relative;
+}
+
+canvas#stars-canvas {
+    position: fixed;
+    top: 0; left: 0;
+    z-index: -1;
+}
+
+.opening-text {
+    margin-top: 100px;
+    text-align: center;
+}
+
+.typewriter-text {
+    font-size: 1.8rem;
+    border-right: 2px solid white;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+    animation: typing 4s steps(30, end) forwards, blink 0.8s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink {
+    50% { border-color: transparent; }
+}
+
+.wish-box {
+    max-width: 600px;
+    margin: 80px auto;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1s ease-out;
+}
+
+.wish-box img {
+    width: 240px;
+    border-radius: 16px;
+    margin-bottom: 20px;
+}
+
+.wish-box p {
+    font-size: 1.4rem;
+    line-height: 1.8;
+}
+
+.wish-box.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.bottle {
+    width: 120px;
+    display: block;
+    margin: 40px auto 0;
+    animation: floatBottle 1.2s ease-in-out forwards;
+}
+
+@keyframes floatBottle {
+    0% { transform: scale(0.8) translateY(0); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: scale(1.2) translateY(-200px); opacity: 0; }
+}
+
+.hidden {
+    display: none;
+}
+
+#to-wish-btn {
+    display: block;
+    margin: 100px auto;
+    padding: 12px 28px;
+    font-size: 1.2rem;
+    border-radius: 30px;
+    border: none;
+    background-color: #aad8c2;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#to-wish-btn:hover {
+    background-color: #8fcfb0;
+}
