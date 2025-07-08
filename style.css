@@ -67,9 +67,31 @@ body.theatre {
   margin: 0;
   padding: 0;
   font-family: 'Ma Shan Zheng', cursive;
-  background: linear-gradient(to bottom right, #ffffff, #d4f4d2);
+  background: none;
   color: #444;
   overflow-x: hidden;
+  position: relative;
+}
+
+body.theatre::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: url("images/theatre-bg.jpg") center/cover no-repeat;
+  filter: blur(6px) brightness(0.9);
+  z-index: -2;
+}
+
+body.theatre::after {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.3);
+  z-index: -1;
 }
 
 h1, h2, p {
