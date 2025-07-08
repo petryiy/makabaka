@@ -1,3 +1,4 @@
+/* ===== 基础样式 ===== */
 body {
     margin: 0;
     font-family: 'ZCOOL QingKe HuangYou', cursive, sans-serif;
@@ -5,156 +6,256 @@ body {
     color: #fff;
     overflow-x: hidden;
     position: relative;
+    min-height: 100vh;
 }
 
+/* ===== 星空画布 ===== */
 canvas#stars-canvas {
-    position: fixed;
-    top: 0; left: 0;
-    z-index: -1;
-}
-
-.page-title {
-    text-align: center;
-    margin-top: 60px;
-    font-size: 2.5rem;
-    color: #ffffff;
-}
-
-.opening-text {
-    text-align: center;
-    margin: 30px 0 60px;
-    font-size: 1.4rem;
-    line-height: 2;
-}
-
-/* .typewriter-text {
-    font-size: 1.8rem;
-    border-right: 2px solid white;
-    white-space: nowrap;
-    overflow: hidden;
-    width: 0;
-    animation: typing 4s steps(30, end) forwards, blink 0.8s step-end infinite;
-}
-
-@keyframes typing {
-    from { width: 0; }
-    to { width: 100%; }
-}
-
-@keyframes blink {
-    50% { border-color: transparent; }
-} */
-
-.wish-box {
-    max-width: 600px;
-    margin: 0 auto;
-    text-align: center;
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 1s ease-out;
-}
-
-.wish-box img {
-    width: 240px;
-    border-radius: 16px;
-    margin-bottom: 20px;
-}
-
-.wish-box p {
-    font-size: 1.4rem;
-    line-height: 1.8;
-}
-
-.wish-box.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.bottle-img {
-    width: 100px;
-    margin: 20px;
-    cursor: pointer;
-    transition: transform 0.4s;
-}
-
-.bottle-img:hover {
-    transform: scale(1.1);
-}
-
-#bottle-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 60px;
-}
-
-/* .bottle {
-    width: 120px;
-    display: block;
-    margin: 40px auto 0;
-    animation: floatBottle 1.2s ease-in-out forwards;
-}
-
-@keyframes floatBottle {
-    0% { transform: scale(0.8) translateY(0); opacity: 0; }
-    50% { opacity: 1; }
-    100% { transform: scale(1.2) translateY(-200px); opacity: 0; }
-} */
-
-.hidden {
-    display: none;
-}
-
-#next-page-btn {
-    display: block;
-    margin: 100px auto;
-    padding: 12px 28px;
-    font-size: 1.2rem;
-    border-radius: 30px;
-    border: none;
-    background-color: #aad8c2;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-#next-page-btn:hover {
-    background-color: #8fcfb0;
-}
-
-.modal {
     position: fixed;
     top: 0;
     left: 0;
+    z-index: -1;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.7);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 99;
 }
 
-.modal-content {
-    background: #fff;
-    color: #000;
-    padding: 20px;
-    border-radius: 12px;
-    max-width: 600px;
-    text-align: center;
-    position: relative;
-}
-
-.modal-content img {
-    width: 220px;
-    border-radius: 12px;
-    margin-bottom: 20px;
-}
-
-#close-modal {
+/* ===== 开场白文字 ===== */
+.opening-text {
     position: absolute;
-    top: 10px;
-    right: 20px;
-    font-size: 1.5rem;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 800px;
+    text-align: center;
+    z-index: 10;
+}
+
+.opening-text p {
+    font-size: 2rem;
+    line-height: 1.6;
+    margin: 20px 0;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+/* ===== 漂流瓶容器 ===== */
+#bottles-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    padding: 0 10%;
+    box-sizing: border-box;
+    z-index: 20;
+}
+
+/* ===== 单个漂流瓶 ===== */
+.bottle {
+    position: relative;
+    width: 80px;
+    height: 120px;
     cursor: pointer;
+    transform: translateY(100px);
+    opacity: 0;
+    transition: all 1s cubic-bezier(0.2, 0.8, 0.3, 1);
+}
+
+.bottle.visible {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.bottle img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 0 15px rgba(170, 216, 194, 0.6));
+    transition: all 0.5s ease;
+}
+
+.bottle:hover img {
+    transform: translateY(-10px) rotate(5deg);
+    filter: drop-shadow(0 0 20px rgba(170, 216, 194, 0.9));
+}
+
+.bottle-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 150%;
+    height: 150%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle, rgba(170, 216, 194, 0.4) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: glow-pulse 3s infinite alternate;
+    z-index: -1;
+}
+
+@keyframes glow-pulse {
+    0% { opacity: 0.3; transform: translate(-50%, -50%) scale(0.8); }
+    100% { opacity: 0.7; transform: translate(-50%, -50%) scale(1.2); }
+}
+
+/* ===== 愿望卡片 ===== */
+.wish-card {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    width: 90%;
+    max-width: 600px;
+    background: rgba(27, 39, 53, 0.95);
+    border: 2px solid rgba(170, 216, 194, 0.3);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: all 0.5s cubic-bezier(0.2, 0.8, 0.3, 1);
+    z-index: 100;
+    overflow-y: auto;
+    max-height: 80vh;
+}
+
+.wish-card.active {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+
+.wish-card img {
+    width: 100%;
+    max-height: 300px;
+    object-fit: contain;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.wish-text {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    text-align: left;
+    padding: 0 10px;
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 2rem;
+    color: #aad8c2;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.close-btn:hover {
+    transform: scale(1.2);
+    color: #fff;
+}
+
+/* ===== 继续按钮 ===== */
+#continue-btn {
+    position: fixed;
+    bottom: 5vh;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 15px 40px;
+    background: rgba(170, 216, 194, 0.7);
+    backdrop-filter: blur(5px);
+    border: none;
+    border-radius: 50px;
+    color: white;
+    font-size: 1.2rem;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.5s;
+    z-index: 30;
+    opacity: 0;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+#continue-btn.visible {
+    opacity: 1;
+    animation: float 3s ease-in-out infinite;
+}
+
+#continue-btn:hover {
+    background: rgba(170, 216, 194, 0.9);
+    transform: translateX(-50%) scale(1.05);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes float {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(-10px); }
+}
+
+/* ===== 页面过渡动画 ===== */
+.page-transition-wave {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background: linear-gradient(to top, #aad8c2, #7ab8a0);
+    z-index: 999;
+    animation: waveRise 1.2s cubic-bezier(0.7, 0, 0.3, 1) forwards;
+}
+
+@keyframes waveRise {
+    to { height: 100%; }
+}
+
+/* ===== 响应式设计 ===== */
+@media (max-width: 768px) {
+    .opening-text p {
+        font-size: 1.5rem;
+    }
+
+    .bottle {
+        width: 60px;
+        height: 90px;
+    }
+
+    .wish-card {
+        padding: 20px;
+    }
+
+    .wish-text {
+        font-size: 1rem;
+    }
+
+    #continue-btn {
+        padding: 12px 30px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #bottles-container {
+        padding: 0 5%;
+    }
+
+    .bottle {
+        width: 50px;
+        height: 75px;
+    }
+}
+
+/* ===== 工具类 ===== */
+.hidden {
+    display: none !important;
+}
+
+.visible {
+    display: block !important;
 }
