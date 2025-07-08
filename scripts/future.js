@@ -101,7 +101,7 @@ function createBottles() {
         <img src="images/bottle.png" alt="漂流瓶">
         <div class="bottle-glow"></div>
       `;
-      bottle.style.left = `${15 + index * 20}%`;
+
       bottle.style.bottom = "-100px";
 
       bottle.addEventListener("click", () => showWish(index));
@@ -109,7 +109,7 @@ function createBottles() {
       container.appendChild(bottle);
 
       setTimeout(() => {
-        bottle.style.bottom = `${15 + Math.random() * 10}%`;
+        bottle.style.bottom = `${25 + Math.random() * 10}%`;
         bottle.style.opacity = "1";
       }, 100);
     }, index * 500);

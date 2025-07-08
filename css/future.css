@@ -9,11 +9,14 @@ body {
     min-height: 100vh;
 }
 
-.title {
-    font-size: 64px;
-    font-weight: bold;
-    color: #000000;
-    margin-bottom: 1em;
+.page-title {
+    position: absolute;
+    top: 3vh;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2.2rem;
+    z-index: 10;
+    font-family: 'ZCOOL QingKe HuangYou', cursive;
 }
 
 /* ===== 星空画布 ===== */
@@ -29,7 +32,7 @@ canvas#stars-canvas {
 /* ===== 开场白文字 ===== */
 .opening-text {
     position: absolute;
-    top: 30%;
+    top: 18vh;
     left: 50%;
     transform: translateX(-50%);
     width: 90%;
@@ -53,28 +56,27 @@ canvas#stars-canvas {
 
 /* ===== 漂流瓶容器 ===== */
 #bottles-container {
-    position: fixed;
-    bottom: 0;
-    left: 0;
+    position: absolute;
+    bottom: 10vh;
+    left: 50%;
+    transform: translateX(-50%);
     width: 100%;
-    height: 50vh;
     display: flex;
-    justify-content: space-around;
-    align-items: flex-end;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    max-width: 1000px;
     padding: 0 10%;
-    box-sizing: border-box;
     z-index: 20;
 }
 
 /* ===== 单个漂流瓶 ===== */
 .bottle {
-    position: relative;
     width: 80px;
     height: 120px;
-    cursor: pointer;
-    transform: translateY(100px);
+    transform: translateY(50px);
     opacity: 0;
-    transition: all 1s cubic-bezier(0.2, 0.8, 0.3, 1);
+    transition: all 0.8s ease-out;
 }
 
 .bottle.visible {
