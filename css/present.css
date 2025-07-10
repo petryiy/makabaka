@@ -1,7 +1,8 @@
 body.beach {
     margin: 0;
     background: url('../images/present-bg.jpg') no-repeat center center fixed;
-    background-size: cover;
+    background-size: contain;
+    background-color: #9bc1e2;
     font-family: 'Ma Shan Zheng', cursive;
     color: #333;
     height: 100vh;
@@ -36,11 +37,16 @@ body.beach::before {
 .title {
     font-size: 4rem;
     margin-bottom: 2rem;
-    color: #2c3e50;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    color: #ff6b88;
+    text-shadow: 2px 2px 4px rgba(255, 215, 255, 0.6);
     opacity: 0;
     transform: translateY(20px);
     transition: all 1s ease;
+    font-weight: 700;
+    background: linear-gradient(to right, #ff6b88, #ff8e53);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .title.visible {
@@ -48,13 +54,23 @@ body.beach::before {
     transform: translateY(0);
 }
 
+.text-container {
+    background: rgba(255, 255, 255, 0.7);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(255, 182, 193, 0.3);
+    backdrop-filter: blur(5px);
+}
+
 .text-container p {
-    font-size: 1.8rem;
-    line-height: 1.6;
-    margin: 1.5rem 0;
+    font-size: 1.6rem;
+    line-height: 1.7;
+    margin: 1.2rem 0;
+    color: #5a3e36;
     opacity: 0;
     transform: translateY(20px);
     transition: all 1s ease;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
 }
 
 .text-container p.visible {
@@ -64,20 +80,23 @@ body.beach::before {
 
 #home-btn {
     display: inline-block;
-    margin-top: 3rem;
+    margin-top: 2.5rem;
     padding: 12px 30px;
-    background-color: #e74c3c;
+    background: linear-gradient(45deg, #ff9a9e, #fad0c4);
     color: white;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     border-radius: 30px;
     text-decoration: none;
     opacity: 0;
     transform: translateY(20px);
     transition: all 0.5 ease;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 15px rgba(255, 105, 140, 0.4);
+    border: none;
+    cursor: pointer;
 }
 
 #home-btn:hover {
-    background-color: #c0392b;
-    transform: translateY(15px);
+    background: linear-gradient(45deg, #fad0c4, #ff9a9e);
+    transform: translateY(15px) scale(1.05);
+    box-shadow: 0 6px 20px rgba(255, 105, 140, 0.6);
 }

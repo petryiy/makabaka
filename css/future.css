@@ -1,4 +1,3 @@
-/* ===== 基础样式 ===== */
 body {
     margin: 0;
     font-family: 'ZCOOL QingKe HuangYou', cursive, sans-serif;
@@ -19,7 +18,7 @@ body {
     font-family: 'ZCOOL QingKe HuangYou', cursive;
 }
 
-/* ===== 星空画布 ===== */
+
 canvas#stars-canvas {
     position: fixed;
     top: 0;
@@ -29,7 +28,7 @@ canvas#stars-canvas {
     height: 100%;
 }
 
-/* ===== 开场白文字 ===== */
+
 .opening-text {
     position: absolute;
     top: 18vh;
@@ -54,7 +53,7 @@ canvas#stars-canvas {
     to { opacity: 1; }
 }
 
-/* ===== 漂流瓶容器 ===== */
+
 #bottles-container {
     position: fixed;
     top: 0;
@@ -65,7 +64,6 @@ canvas#stars-canvas {
     z-index: 20;
 }
 
-/* ===== 单个漂流瓶 ===== */
 .bottle {
     position: absolute;
     width: 80px;
@@ -113,7 +111,7 @@ canvas#stars-canvas {
     100% { opacity: 0.7; transform: translate(-50%, -50%) scale(1.2); }
 }
 
-/* ===== 愿望卡片 ===== */
+
 .wish-card {
     position: fixed;
     top: 50%;
@@ -169,7 +167,7 @@ canvas#stars-canvas {
     color: #fff;
 }
 
-/* ===== 继续按钮 ===== */
+
 #continue-btn {
     position: fixed;
     bottom: 5vh;
@@ -206,7 +204,7 @@ canvas#stars-canvas {
     50% { transform: translateX(-50%) translateY(-10px); }
 }
 
-/* ===== 页面过渡动画 ===== */
+
 .page-transition-wave {
     position: fixed;
     bottom: 0;
@@ -222,7 +220,7 @@ canvas#stars-canvas {
     to { height: 100%; }
 }
 
-/* ===== 响应式设计 ===== */
+
 @media (max-width: 768px) {
     .opening-text p {
         font-size: 1.5rem;
@@ -258,7 +256,7 @@ canvas#stars-canvas {
     }
 }
 
-/* ===== 工具类 ===== */
+
 .hidden {
     display: none !important;
 }
