@@ -3,6 +3,7 @@ body {
     font-family: 'ZCOOL KuaiLe', cursive;
     background: linear-gradient(to bottom right, #c8f0cf, #e6fff0);
     color: #333;
+    min-height: 100vh;
 }
 
 .navbar {
@@ -60,6 +61,13 @@ body {
     font-weight: bold;
 }
 
+.timer div div {
+    margin-top: 8px;
+    font-size: 1rem;
+    font-weight: normal;
+    color: #777;
+}
+
 .red { color: #f06292; }
 .orange { color: #f9a825; }
 .yellow { color: #fdd835; }
@@ -82,7 +90,7 @@ body {
     width: 250px;
     text-decoration: none;
     color: #444;
-    transition: transform 0.3 ease;
+    transition: transform 0.3s ease;
 }
 
 .link-box:hover {
