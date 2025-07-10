@@ -1,12 +1,12 @@
 body.beach {
     margin: 0;
     background: url('../images/present-bg.jpg') no-repeat center center fixed;
-    background-size: contain;
+    background-size: cover;
     background-color: #9bc1e2;
     font-family: 'Ma Shan Zheng', cursive;
     color: #333;
-    height: 100vh;
-    overflow: hidden;
+    min-height: 100vh;
+    overflow: auto;
     position: relative;
 }
 
