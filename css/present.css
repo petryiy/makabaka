@@ -1,0 +1,83 @@
+body.beach {
+    margin: 0;
+    background: url('../images/present-bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Ma Shan Zheng', cursive;
+    color: #333;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+body.beach::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3);
+    z-index: 0;
+}
+
+.container {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    z-index: 1;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.title {
+    font-size: 4rem;
+    margin-bottom: 2rem;
+    color: #2c3e50;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 1s ease;
+}
+
+.title.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.text-container p {
+    font-size: 1.8rem;
+    line-height: 1.6;
+    margin: 1.5rem 0;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 1s ease;
+}
+
+.text-container p.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#home-btn {
+    display: inline-block;
+    margin-top: 3rem;
+    padding: 12px 30px;
+    background-color: #e74c3c;
+    color: white;
+    font-size: 1.5rem;
+    border-radius: 30px;
+    text-decoration: none;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5 ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+#home-btn:hover {
+    background-color: #c0392b;
+    transform: translateY(15px);
+}
