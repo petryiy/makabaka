@@ -45,7 +45,7 @@ body {
 
 .together-title {
     font-size: 2rem;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     color: #6a8b74;
 }
 
@@ -63,7 +63,6 @@ body {
 
 .timer div div {
     margin-top: 8px;
-    font-size: 1rem;
     font-weight: normal;
     color: #777;
 }
@@ -105,4 +104,18 @@ body {
 .link-box p {
     font-size: 1rem;
     color: #888;
+}
+
+@media (max-width: 768px) {
+    .nav-right {
+        gap: 0.8rem;
+    }
+    .timer {
+        gap: 15px;
+        font-size: 1.8rem;
+    }
+    .link-boxes {
+        gap: 20px;
+        padding: 30px 20px;
+    }
 }
