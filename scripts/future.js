@@ -126,12 +126,13 @@ function createBottles() {
         const btn = document.getElementById("continue-btn");
         btn.classList.remove("hidden");
         btn.classList.add("visible");
+
         btn.addEventListener("click", () => {
         const wave = document.createElement("div");
         wave.className = "page-transition-wave";
         document.body.appendChild(wave);
         setTimeout(() => {
-            window.location.href = "wish.html";
+            window.location.href = "present.html";
         }, 1200);
         });
     }, wishes.length * 600);
