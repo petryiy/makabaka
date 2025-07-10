@@ -65,11 +65,11 @@ body.beach::before {
     font-size: 1.6rem;
     line-height: 1.7;
     margin: 1.2rem 0;
-    color: #8dd0f5;
+    color: #36a4e0;
     opacity: 0;
     transform: translateY(20px);
     transition: all 1s ease;
-    text-shadow: 0 0 10px rgba(179, 229, 255, 0.8), 0 0 20px rgba(179, 229, 255, 0.5);
+    text-shadow: 0 0 10px rgba(35, 168, 240, 0.8), 0 0 20px rgba(56, 181, 248, 0.5);
 }
 
 .text-container p.visible {
