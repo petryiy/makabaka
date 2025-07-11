@@ -68,13 +68,13 @@ body {
     right: 20px;
     width: 40px;
     height: 40px;
-    background: rgba(0,0,0,0.7);
+    background: rgba(238, 231, 231, 0.7);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    z-index: 9999;
+    z-index: 99999;
 }
 
 .lb-close:before, .lb-close:after {
