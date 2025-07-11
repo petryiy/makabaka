@@ -256,6 +256,10 @@ img {
   padding: 1em;
 }
 
+.all-cards-grid:target {
+  display: grid;
+}
+
 .hidden {
   display: none;
 }
