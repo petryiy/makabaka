@@ -106,6 +106,35 @@ body {
     color: #888;
 }
 
+footer {
+    padding: 20px 0;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    margin-top: 60px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-content p {
+    margin: 0;
+    font-size: 1rem;
+    color: #555;
+}
+
+.social-icons {
+    margin-top: 10px;
+}
+
+.social-icon {
+    margin: 0 10px;
+    font-size: 1.4rem;
+    color: #555;
+    transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+    color: #ff8a8a;
+}
+
 @media (max-width: 768px) {
     .nav-right {
         gap: 0.8rem;
