@@ -4,31 +4,63 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
     <title>Future</title>
+    <link rel="stylesheet" href="css/navbar&footer.css">
     <link rel="stylesheet" href="css/future.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-    <canvas id="stars-canvas"></canvas>
-    
-    <h1 class="page-title">愿景</h1>
-    <div class="opening-text">
-        <p id="line1"></p>
-        <p id="line2"></p>
-        <p id="line3"></p>
-        <p id="line4"></p>
+    <div class="page-content">
+
+
+        <canvas id="stars-canvas"></canvas>
+        
+        <h1 class="page-title">愿景</h1>
+        <div class="opening-text">
+            <p id="line1"></p>
+            <p id="line2"></p>
+            <p id="line3"></p>
+            <p id="line4"></p>
+        </div>
+
+        <div id="bottles-container"></div>
+
+        <button id="continue-btn" class="continue-btn hidden">
+            点完所有漂流瓶继续点我！
+            <svg class="wave" viewBox="0 0 1200 100" preserveAspectRatio="none">
+                <path 
+                d="M0,0 C150,50 350,0 500,50 C650,100 850,0 1000,50 C1150,100 1200,50 1200,0 L1200,100 L0,100 Z"
+                fill="rgba(255,255,255,0.2)">
+                </path>
+            </svg>
+        </button>
     </div>
 
-    <div id="bottles-container"></div>
-
-    <button id="continue-btn" class="continue-btn hidden">
-        点完所有漂流瓶继续点我！
-        <svg class="wave" viewBox="0 0 1200 100" preserveAspectRatio="none">
-            <path 
-              d="M0,0 C150,50 350,0 500,50 C650,100 850,0 1000,50 C1150,100 1200,50 1200,0 L1200,100 L0,100 Z"
-              fill="rgba(255,255,255,0.2)">
-            </path>
-        </svg>
-    </button>
-
+    <footer class="footer">
+        <div class="footer-content">
+          <p>&copy; 2025 petryiy. All rights reserved.</p>
+          <p>Built with 🩷 to Adonia.</p>
+      
+          <p style="font-size: 0.75em; color: #ccc;">
+            漂流瓶插画素材来自：
+            <a href="https://zh.pngtree.com/freepng/fantasy-starry-drift-bottle-illustration_4750553.html" target="_blank" rel="noopener noreferrer">
+              pngtree.com（幻想星空漂流瓶插图）
+            </a>
+          </p>
+      
+          <div class="social-icons">
+            <a href="https://www.instagram.com/michaelzhang715/" target="_blank" class="social-icon">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/ruiqi-zhang-michael" target="_blank" class="social-icon">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://github.com/petryiy" target="_blank" class="social-icon">
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+        </div>
+      </footer>      
+      
     <script src="scripts/future.js"></script>
 </body>
 </html>

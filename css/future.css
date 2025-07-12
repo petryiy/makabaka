@@ -1,4 +1,6 @@
 body {
+    display: flex;
+    flex-direction: column;
     margin: 0;
     font-family: 'ZCOOL QingKe HuangYou', cursive, sans-serif;
     background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
@@ -6,6 +8,13 @@ body {
     overflow-x: hidden;
     position: relative;
     min-height: 100vh;
+}
+
+.page-content {
+    flex: 1;
+    position: relative;
+    z-index: 1;
+    padding-bottom: 100px;
 }
 
 .page-title {
@@ -55,13 +64,14 @@ canvas#stars-canvas {
 
 
 #bottles-container {
-    position: fixed;
+    position: relative;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     pointer-events: none; 
     z-index: 20;
+    margin-top: 70vh;
 }
 
 .bottle {
@@ -113,7 +123,7 @@ canvas#stars-canvas {
 
 
 .wish-card {
-    position: fixed;
+    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(0.8);
@@ -138,8 +148,8 @@ canvas#stars-canvas {
 
 .wish-card img {
     width: 100%;
-    max-height: 300px;
-    object-fit: contain;
+    max-height: 400px;
+    object-fit: cover;
     border-radius: 10px;
     margin-bottom: 20px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
@@ -169,8 +179,8 @@ canvas#stars-canvas {
 
 
 #continue-btn {
-    position: fixed;
-    bottom: 5vh;
+    position: relative;
+    bottom: -20vh;
     left: 50%;
     transform: translateX(-50%);
     padding: 15px 40px;
