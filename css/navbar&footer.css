@@ -35,13 +35,12 @@ footer {
     text-align: center;
     font-family: 'Times New Roman', Times, serif;
     margin-top: 60px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .footer-content p {
     margin: 0;
     font-size: 1rem;
-    color: #555;
+    color: #0d0101;
 }
 
 .social-icons {
@@ -51,7 +50,7 @@ footer {
 .social-icon {
     margin: 0 10px;
     font-size: 1.4rem;
-    color: #555;
+    color: #140101;
     transition: color 0.3s ease;
 }
 

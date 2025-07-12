@@ -135,5 +135,5 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     showCard();
-  }, 20000);
+  }, 18000);
 });
