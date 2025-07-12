@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const nextButton = document.querySelector(".next-button");
 
   const urlParams = new URLSearchParams(window.location.search);
-  const mode = urlParams.get("mode");  // 可能为 null 或 'all'
+  const mode = urlParams.get("mode");  
 
   const cardData = [
     {
@@ -63,7 +63,6 @@ document.addEventListener("DOMContentLoaded", () => {
     populateAllCards();
   }
 
-  // 原始 populate 函数不变
   function populateAllCards() {
     allCardsGrid.innerHTML = "";
     for (let i = 0; i < cardData.length; i++) {
@@ -88,13 +87,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // 如果是跳转模式，直接显示所有卡片
   if (mode === "all") {
     showAllCardsImmediately();
     return;
   }
 
-  // 否则正常流程播放 intro 和动画
   setTimeout(() => {
     introTexts.style.display = "none";
     memoryCardContainer.style.display = "block";
