@@ -12,6 +12,10 @@
     <body class="theatre">
         <img src="images/snoopy.png" class="snoopy" alt="snoopy">
         <div class="memory-stage">
+            <div id="music-control">
+                <button id="toggle-music">⏸️</button>
+                <div id="yt-music-player"></div>
+            </div>
             <h1 class="memory-title">回忆</h1>
             <div class="intro-texts">
                 <p>正如我所说过快乐无法永恒，</p>
@@ -20,11 +24,14 @@
                 <p>便是——回忆。</p>
             </div>
 
+
+              
+
             <div class="memory-card-container"></div>
 
             <div class="all-cards-grid hidden"></div>
 
-            <a href="future.html" class="next-button hidden" id="wish-btn">
+            <a href="future.html?from=theatre" class="next-button hidden" id="wish-btn">
                 <span>点我点我点我</span>
                 <svg class="paper-plane" viewBox="0 0 24 24" width="24" height="24" fill="white">
                     <path d="M2 3l19 9-19 9v-7l13-2-13-2v-7z"/>
@@ -58,6 +65,41 @@
                 setTimeout(() => {
                     window.location.href = 'future.html';
                 }, 1200);
+            });
+        </script>
+        <script src="https://www.youtube.com/iframe_api"></script>
+        <script>
+            let player;
+            let isPlaying = true;
+            
+            function onYouTubeIframeAPIReady() {
+                player = new YT.Player('yt-music-player', {
+                videoId: 'Yh38A0BU22w', // 《只为你着迷》的视频ID
+                playerVars: {
+                    autoplay: 1,
+                    controls: 0,
+                    loop: 1,
+                    playlist: 'Yh38A0BU22w',
+                    modestbranding: 1,
+                    rel: 0
+                },
+                events: {
+                    onReady: (event) => {
+                    event.target.playVideo();
+                    }
+                }
+                });
+            }
+            
+            document.getElementById('toggle-music').addEventListener('click', () => {
+                if (isPlaying) {
+                player.pauseVideo();
+                document.getElementById('toggle-music').textContent = '▶️';
+                } else {
+                player.playVideo();
+                document.getElementById('toggle-music').textContent = '⏸️';
+                }
+                isPlaying = !isPlaying;
             });
         </script>
     </body>

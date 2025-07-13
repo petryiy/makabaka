@@ -336,3 +336,32 @@ img {
     opacity: 0;
   }
 }
+
+#music-control {
+  position: fixed;
+  top: 1.2rem;
+  right: 1.2rem;
+  z-index: 1000;
+}
+
+#toggle-music {
+  font-size: 1.2rem;
+  background: rgba(255,255,255,0.15);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 10px;
+  cursor: pointer;
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
+}
+
+#toggle-music:hover {
+  background: rgba(255,255,255,0.3);
+}
+
+#yt-music-player {
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
