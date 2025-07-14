@@ -73,10 +73,9 @@
       let player;
       let isPlaying = false;
       let hasStartedMusic = false;
-      // 获取按钮引用，确保在 DOMContentLoaded 之后即可访问
+      
       const toggleBtn = document.getElementById("toggle-music");
   
-      // 用于初始化 YouTube 播放器的函数
       function initializeYouTubePlayer() {
         player = new YT.Player('yt-music-player', {
             videoId: 'KGbfyhKD6yw',
@@ -90,7 +89,7 @@
             },
             events: {
                 onReady: (event) => {
-                // 播放器准备就绪后，尝试播放音乐并设置按钮监听器
+              
                 if (!hasStartedMusic) {
                     event.target.playVideo();
                     event.target.unMute();
@@ -99,8 +98,8 @@
                 isPlaying = event.target.getPlayerState() === YT.PlayerState.PLAYING;
                 updateButtonIcon();
 
-                // 只有在播放器准备就绪后才添加按钮点击事件监听器
-                if (toggleBtn) { // 确保按钮元素存在
+                
+                if (toggleBtn) { 
                     toggleBtn.addEventListener("click", (e) => {
                     e.stopPropagation();
                     if (isPlaying) {
@@ -108,7 +107,7 @@
                     } else {
                         player.playVideo();
                         player.unMute();
-                        hasStartedMusic = true; // 确保此标志在用户交互后也设置为true
+                        hasStartedMusic = true; 
                     }
                     });
                 }
@@ -121,18 +120,15 @@
         });
       }
   
-      // YouTube API 会在 API 准备就绪时调用此函数
+     
       function onYouTubeIframeAPIReady() {
         initializeYouTubePlayer();
       }
   
-      // 检查 YouTube API 是否已加载（例如，从上一个页面加载）
-      // 如果已加载，则手动调用初始化函数。
       if (window.YT && window.YT.Player) {
         onYouTubeIframeAPIReady();
       }
   
-      // 保留 window.showWish 覆盖，但确保 player 存在且未开始播放时才触发音乐
       const originalShowWish = window.showWish;
       window.showWish = function (index) {
         if (player && !hasStartedMusic) {

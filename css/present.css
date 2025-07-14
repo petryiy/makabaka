@@ -140,22 +140,13 @@ body.beach::before {
     overflow: hidden;
 }
 
-/* 移除 .music-container 的样式，因为在 HTML 中它不再是独立的定位容器 */
-/* .music-container {
-    position: fixed;
-    top: 30px;
-    right: 20px;
-    display: flex;
-    align-items: center;
-    z-index: 1000;
-} */
 
 .music-hint {
     font-size: 1.3rem;
     color: #cf1414;
-    /* margin-right: 50px; 移除，由父元素的 gap 属性控制间距 */
+    
     animation: pulse 2s infinite;
-    white-space: nowrap; /* 确保文本不换行 */
+    white-space: nowrap; 
 }
 
 @keyframes pulse {
