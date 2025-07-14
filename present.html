@@ -67,10 +67,9 @@
                 }
             }
         
-            // 用于初始化 YouTube 播放器的函数
             function initializeYouTubePlayerPresent() {
                 player = new YT.Player('yt-music-player', {
-                    videoId: 'IyXjHNwQIhw',
+                    videoId: 'IyXjHNwQIhw', //要去有你在的地方
                     playerVars: {
                         autoplay: 1,
                         controls: 0,
@@ -81,61 +80,54 @@
                     },
                     events: {
                         onReady: (event) => {
-                            // 播放器准备就绪后，立即静音播放器，因为浏览器可能已经静音了
+                           
                             event.target.mute();
-                            isPlaying = false; // 初始状态为静音，所以视为未播放
-                            updateToggleButtonIcon(); // 更新按钮图标为“播放”状态
-                            console.log("YouTube Player is ready and muted."); // 调试日志
+                            isPlaying = false; 
+                            updateToggleButtonIcon(); 
+                            console.log("YouTube Player is ready and muted."); 
                         },
                         onStateChange: (event) => {
-                            // 根据播放器实际状态和静音状态更新 isPlaying
+                            
                             isPlaying = (event.data === YT.PlayerState.PLAYING && !player.isMuted());
                             updateToggleButtonIcon();
                         }
                     }
                 });
             }
-        
-            // YouTube API 会在 API 准备就绪时调用此函数
+
             function onYouTubeIframeAPIReady() {
                 initializeYouTubePlayerPresent();
             }
         
-            // 检查 YouTube API 是否已加载（例如，从上一个页面加载）
-            // 如果已加载，则手动调用初始化函数。
             if (window.YT && window.YT.Player) {
                 onYouTubeIframeAPIReady();
             }
         
-            // 将按钮点击事件监听器移到这里，确保它在 DOM 加载后立即绑定
             if (toggleMusicBtn) {
                 toggleMusicBtn.addEventListener('click', () => {
-                    // 在执行任何播放器操作之前，检查 player 对象是否已定义
                     if (!player) {
                         console.warn("Player not yet initialized. Please wait or refresh.");
-                        return; // 如果播放器未就绪，则不执行任何操作
+                        return; 
                     }
         
                     if (!hasUserInteracted) {
-                        // 第一次交互：取消静音并播放
                         player.unMute();
                         player.playVideo();
                         hasUserInteracted = true;
-                        isPlaying = true; // 现在真正播放并有声音了
-                        console.log("First user interaction: Unmuted and playing."); // 调试日志
+                        isPlaying = true; 
+                        console.log("First user interaction: Unmuted and playing."); 
                     } else {
-                        // 后续交互：切换播放/暂停
                         if (player.getPlayerState() === YT.PlayerState.PLAYING) {
                             player.pauseVideo();
                             isPlaying = false;
-                            console.log("Pausing music."); // 调试日志
+                            console.log("Pausing music."); 
                         } else {
                             player.playVideo();
                             isPlaying = true;
                             console.log("Playing music."); // 调试日志
                         }
                     }
-                    updateToggleButtonIcon(); // 交互后更新图标
+                    updateToggleButtonIcon(); 
                 });
             }
         </script>
