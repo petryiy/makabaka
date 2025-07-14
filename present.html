@@ -10,6 +10,13 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     </head>
     <body class="beach">
+        <div id="music-control">
+            <button id="toggle-music">⏸️</button>
+            <div class="music-container">
+                <div class="music-hint">🎵 先点我开启背景音乐 →</div>
+                <div id="yt-music-player"></div>
+            </div>
+        </div>
         <div class="container">
             <h1 class="title">当下</h1>
             <div class="text-container">
@@ -40,5 +47,40 @@
             </div>
         </footer>
         <script src="scripts/present.js"></script>
+        <script src="https://www.youtube.com/iframe_api"></script>
+        <script>
+            let player;
+            let isPlaying = true;
+            
+            function onYouTubeIframeAPIReady() {
+                player = new YT.Player('yt-music-player', {
+                videoId: 'IyXjHNwQIhw', // 《要去有你在的地方》的视频ID
+                playerVars: {
+                    autoplay: 1,
+                    controls: 0,
+                    loop: 1,
+                    playlist: 'IyXjHNwQIhw',
+                    modestbranding: 1,
+                    rel: 0
+                },
+                events: {
+                    onReady: (event) => {
+                    event.target.playVideo();
+                    }
+                }
+                });
+            }
+            
+            document.getElementById('toggle-music').addEventListener('click', () => {
+                if (isPlaying) {
+                player.pauseVideo();
+                document.getElementById('toggle-music').textContent = '▶️';
+                } else {
+                player.playVideo();
+                document.getElementById('toggle-music').textContent = '⏸️';
+                }
+                isPlaying = !isPlaying;
+            });
+        </script>
     </body>
 </html>
