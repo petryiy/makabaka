@@ -97,14 +97,13 @@ body {
     opacity: 1 !important;
 }
 
-@media (max-width: 900px) {
-    .gallery-container {
-        grid-template-columns: repeat(2, 1fr);
+@media (max-width: 768px) {
+    .gallery-item {
+        width: calc(50% - 15px);
     }
-}
 
-@media (max-width: 600px) {
-    .gallery-container {
-        grid-template-columns: 1fr;
+    .gallery-item:nth-last-child(1):nth-child(odd) {
+        margin-left: auto;
+        margin-right: auto;
     }
 }
