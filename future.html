@@ -73,69 +73,84 @@
       let player;
       let isPlaying = false;
       let hasStartedMusic = false;
-
-      function onYouTubeIframeAPIReady() {
+      // 获取按钮引用，确保在 DOMContentLoaded 之后即可访问
+      const toggleBtn = document.getElementById("toggle-music");
+  
+      // 用于初始化 YouTube 播放器的函数
+      function initializeYouTubePlayer() {
         player = new YT.Player('yt-music-player', {
           videoId: 'EHy4D0Xhjkg',
           playerVars: {
-            autoplay: 1, 
-            loop: 1,
-            controls: 0,
-            playlist: 'EHy4D0Xhjkg',
-            modestbranding: 1,
-            rel: 0
+              autoplay: 1,
+              loop: 1,
+              controls: 0,
+              playlist: 'EHy4D0Xhjkg',
+              modestbranding: 1,
+              rel: 0
           },
           events: {
-            onReady: () => {
+            onReady: (event) => {
+              // 播放器准备就绪后，尝试播放音乐并设置按钮监听器
+              if (!hasStartedMusic) {
+                event.target.playVideo();
+                event.target.unMute();
+                hasStartedMusic = true;
+              }
+              isPlaying = event.target.getPlayerState() === YT.PlayerState.PLAYING;
+              updateButtonIcon();
+
+              // 只有在播放器准备就绪后才添加按钮点击事件监听器
+              if (toggleBtn) { // 确保按钮元素存在
+                toggleBtn.addEventListener("click", (e) => {
+                  e.stopPropagation();
+                  if (isPlaying) {
+                      player.pauseVideo();
+                  } else {
+                      player.playVideo();
+                      player.unMute();
+                      hasStartedMusic = true; // 确保此标志在用户交互后也设置为true
+                  }
+                });
+              }
             },
             onStateChange: (event) => {
-              isPlaying = event.data === YT.PlayerState.PLAYING;
-              updateButtonIcon();
+                isPlaying = event.data === YT.PlayerState.PLAYING;
+                updateButtonIcon();
             }
           }
         });
       }
-
-      document.addEventListener("DOMContentLoaded", () => {
-        const toggleBtn = document.getElementById("toggle-music");
-        toggleBtn.addEventListener("click", (e) => {
-          e.stopPropagation();
-          if (!player) return;
-          if (isPlaying) {
-            player.pauseVideo();
-          } else {
-            player.playVideo();
-            player.unMute(); 
-            hasStartedMusic = true;
-          }
-        });
-      });
-
-      function triggerMusicPlaybackOnce() {
+  
+      // YouTube API 会在 API 准备就绪时调用此函数
+      function onYouTubeIframeAPIReady() {
+        initializeYouTubePlayer();
+      }
+  
+      // 检查 YouTube API 是否已加载（例如，从上一个页面加载）
+      // 如果已加载，则手动调用初始化函数。
+      if (window.YT && window.YT.Player) {
+        onYouTubeIframeAPIReady();
+      }
+  
+      // 保留 window.showWish 覆盖，但确保 player 存在且未开始播放时才触发音乐
+      const originalShowWish = window.showWish;
+      window.showWish = function (index) {
         if (player && !hasStartedMusic) {
           player.playVideo();
           player.unMute();
           hasStartedMusic = true;
         }
-      }
-
-      const originalShowWish = window.showWish;
-      window.showWish = function (index) {
-        triggerMusicPlaybackOnce();
-        originalShowWish(index); 
-      };
-
-      function updateButtonIcon() {
-        const btn = document.getElementById("toggle-music");
-        btn.textContent = isPlaying ? "🎵" : "🔇";
-      }
-
-      setTimeout(() => {
-        if (!window.YT) {
-          console.error("YouTube API 加载失败");
+        if (originalShowWish) {
+          originalShowWish(index);
         }
-      }, 5000);
-    </script>
+      };
+  
+      function updateButtonIcon() {
+        if (toggleBtn) { // 确保按钮元素存在
+          toggleBtn.textContent = isPlaying ? "🎵" : "🔇";
+        }
+      }
+  </script>
 
 </body>
 </html>

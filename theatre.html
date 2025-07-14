@@ -70,37 +70,67 @@
         <script src="https://www.youtube.com/iframe_api"></script>
         <script>
             let player;
-            let isPlaying = true;
-            
-            function onYouTubeIframeAPIReady() {
+            let isPlaying = true; // 假设默认是播放状态
+        
+            // 获取按钮引用
+            const toggleMusicBtn = document.getElementById('toggle-music');
+        
+            // 用于初始化 YouTube 播放器的函数
+            function initializeYouTubePlayerTheatre() {
                 player = new YT.Player('yt-music-player', {
-                videoId: 'Yh38A0BU22w', // 《只为你着迷》的视频ID
-                playerVars: {
-                    autoplay: 1,
-                    controls: 0,
-                    loop: 1,
-                    playlist: 'Yh38A0BU22w',
-                    modestbranding: 1,
-                    rel: 0
-                },
-                events: {
-                    onReady: (event) => {
-                    event.target.playVideo();
+                    videoId: 'Yh38A0BU22w', // 《只为你着迷》的视频ID
+                    playerVars: {
+                        autoplay: 1,
+                        controls: 0,
+                        loop: 1,
+                        playlist: 'Yh38A0BU22w',
+                        modestbranding: 1,
+                        rel: 0
+                    },
+                    events: {
+                        onReady: (event) => {
+                            event.target.playVideo();
+                            isPlaying = true; // 确保状态同步
+                            updateToggleButtonIcon(); // 更新按钮图标
+        
+                            // 只有在播放器准备就绪后才添加按钮点击事件监听器
+                            if (toggleMusicBtn) {
+                                toggleMusicBtn.addEventListener('click', () => {
+                                    if (isPlaying) {
+                                        player.pauseVideo();
+                                    } else {
+                                        player.playVideo();
+                                    }
+                                    isPlaying = !isPlaying;
+                                    updateToggleButtonIcon(); // 每次点击后更新图标
+                                });
+                            }
+                        },
+                        onStateChange: (event) => {
+                            isPlaying = event.data === YT.PlayerState.PLAYING;
+                            updateToggleButtonIcon();
+                        }
                     }
-                }
                 });
             }
-            
-            document.getElementById('toggle-music').addEventListener('click', () => {
-                if (isPlaying) {
-                player.pauseVideo();
-                document.getElementById('toggle-music').textContent = '▶️';
-                } else {
-                player.playVideo();
-                document.getElementById('toggle-music').textContent = '⏸️';
+        
+            // YouTube API 会在 API 准备就绪时调用此函数
+            function onYouTubeIframeAPIReady() {
+                initializeYouTubePlayerTheatre();
+            }
+        
+            // 检查 YouTube API 是否已加载（例如，从上一个页面加载）
+            // 如果已加载，则手动调用初始化函数。
+            if (window.YT && window.YT.Player) {
+                onYouTubeIframeAPIReady();
+            }
+        
+            // 更新按钮图标的函数
+            function updateToggleButtonIcon() {
+                if (toggleMusicBtn) {
+                    toggleMusicBtn.textContent = isPlaying ? '⏸️' : '▶️';
                 }
-                isPlaying = !isPlaying;
-            });
+            }
         </script>
     </body>
 </html>
