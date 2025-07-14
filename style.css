@@ -365,3 +365,31 @@ img {
   height: 0;
   overflow: hidden;
 }
+
+.music-container {
+  position: fixed;
+  top: 30px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  z-index: 1000;
+}
+
+.music-hint {
+  font-size: 1.3rem;
+  color: #cf1414;
+  margin-right: 50px;
+  animation: pulse 2s infinite;
+  white-space: nowrap;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: translateX(0); }
+  50% { opacity: 0.6; transform: translateX(2px); }
+}
+
+#yt-music-player iframe {
+  width: 40px;
+  height: 40px;
+  border: none;
+}

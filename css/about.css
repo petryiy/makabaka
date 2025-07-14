@@ -4,6 +4,8 @@ body {
     background: linear-gradient(to bottom right, #c8f0cf, #e6fff0);
     color: #333;
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .about-header {

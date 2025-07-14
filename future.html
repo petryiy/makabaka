@@ -72,50 +72,70 @@
     <script>
       let player;
       let isPlaying = false;
-    
-      // 从URL判断是否是从theatre跳过来的
-      const urlParams = new URLSearchParams(window.location.search);
-      const fromTheatre = urlParams.get('from') === 'theatre';
-    
+      let hasStartedMusic = false;
+
       function onYouTubeIframeAPIReady() {
         player = new YT.Player('yt-music-player', {
-          videoId: 'EHy4D0Xhjkg', // 《逐梦》 YouTube 视频 ID
+          videoId: 'EHy4D0Xhjkg',
           playerVars: {
-            autoplay: fromTheatre ? 1 : 0,
-            controls: 0,
+            autoplay: 1, 
             loop: 1,
+            controls: 0,
             playlist: 'EHy4D0Xhjkg',
             modestbranding: 1,
             rel: 0
           },
           events: {
-            onReady: (event) => {
-              if (fromTheatre) {
-                event.target.unMute();
-                event.target.playVideo();
-                isPlaying = true;
-              }
+            onReady: () => {
+            },
+            onStateChange: (event) => {
+              isPlaying = event.data === YT.PlayerState.PLAYING;
+              updateButtonIcon();
             }
           }
         });
       }
-    
-      // 控制按钮点击播放/暂停
+
       document.addEventListener("DOMContentLoaded", () => {
-        const btn = document.getElementById("toggle-music");
-        btn.addEventListener("click", () => {
+        const toggleBtn = document.getElementById("toggle-music");
+        toggleBtn.addEventListener("click", (e) => {
+          e.stopPropagation();
           if (!player) return;
           if (isPlaying) {
             player.pauseVideo();
-            isPlaying = false;
-            btn.textContent = "🔇";
           } else {
             player.playVideo();
-            isPlaying = true;
-            btn.textContent = "🎵";
+            player.unMute(); 
+            hasStartedMusic = true;
           }
         });
       });
-    </script>    
+
+      function triggerMusicPlaybackOnce() {
+        if (player && !hasStartedMusic) {
+          player.playVideo();
+          player.unMute();
+          hasStartedMusic = true;
+        }
+      }
+
+      const originalShowWish = window.showWish;
+      window.showWish = function (index) {
+        triggerMusicPlaybackOnce();
+        originalShowWish(index); 
+      };
+
+      function updateButtonIcon() {
+        const btn = document.getElementById("toggle-music");
+        btn.textContent = isPlaying ? "🎵" : "🔇";
+      }
+
+      setTimeout(() => {
+        if (!window.YT) {
+          console.error("YouTube API 加载失败");
+        }
+      }, 5000);
+    </script>
+
 </body>
 </html>
