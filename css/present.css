@@ -102,9 +102,19 @@ body.beach::before {
 
 #music-control {
     position: fixed;
-    top: 1.2rem;
-    right: 1.2rem;
+    top: 20px; /* 统一使用像素单位，更精确 */
+    right: 20px;
     z-index: 1000;
+    /* 关键更改：使 #music-control 成为 Flex 容器 */
+    display: flex;
+    align-items: center; /* 垂直居中对齐子项 */
+    gap: 10px; /* 提示和按钮之间的间距 */
+
+    /* 添加背景和内边距，使控制区域更美观和可点击 */
+    background: rgba(255,255,255,0.05); /* 半透明背景 */
+    padding: 8px 15px;
+    border-radius: 25px;
+    backdrop-filter: blur(5px); /* 保持模糊效果 */
 }
 
 #toggle-music {
@@ -115,8 +125,9 @@ body.beach::before {
     border-radius: 50%;
     padding: 10px;
     cursor: pointer;
-    backdrop-filter: blur(5px);
+    /* backdrop-filter: blur(5px); 此属性已移至父元素 #music-control */
     transition: all 0.3s ease;
+    flex-shrink: 0; /* 防止按钮在空间不足时缩小 */
 }
 
 #toggle-music:hover {
@@ -129,21 +140,22 @@ body.beach::before {
     overflow: hidden;
 }
 
-.music-container {
+/* 移除 .music-container 的样式，因为在 HTML 中它不再是独立的定位容器 */
+/* .music-container {
     position: fixed;
     top: 30px;
     right: 20px;
     display: flex;
     align-items: center;
     z-index: 1000;
-}
+} */
 
 .music-hint {
     font-size: 1.3rem;
     color: #cf1414;
-    margin-right: 50px;
+    /* margin-right: 50px; 移除，由父元素的 gap 属性控制间距 */
     animation: pulse 2s infinite;
-    white-space: nowrap;
+    white-space: nowrap; /* 确保文本不换行 */
 }
 
 @keyframes pulse {
